@@ -1,52 +1,63 @@
-# React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+# Todo App 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+This project is a React + TypeScript application powered by Vite, providing fast development with Hot Module Replacement (HMR) and a minimal setup. The app includes a sample todo application and integrates ESLint for consistent code quality.
 
-## Expanding the ESLint configuration
+## Features
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React + TypeScript**: Combines the power of React with type safety.
+- **Vite**: Lightning-fast development environment with HMR.
+- **ESLint**: Enforces best practices and coding standards.
+- **Redux**: For state management in the todo app.
 
-- Configure the top-level `parserOptions` property like this:
+---
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Installation
+
+Follow these steps to set up the project on your local machine.
+
+### Using Yarn
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/react-redux-todoapp.git
+
+# Navigate into the project directory
+cd react-redux-todoapp
+
+# Install dependencies
+yarn
+
+# Start the development server
+yarn dev
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Using NPM
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/react-redux-todoapp.git
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+# Navigate into the project directory
+cd react-redux-todoapp
+
+# Install dependencies
+npm install
+
+# Start the development server
+npm run dev
 ```
-# react-redux-todoapp
-# react-redux-todoapp
+
+---
+
+## Demonstration
+
+### 1. Todo App Dashboard
+*The main and only feature of the app :v*
+
+![Dashboard Screenshot](https://drive.google.com/file/d/1ZvIrYLtDvvgzJ38FyaKVKfN5AyZCNVBe/view?usp=sharing)
+
+
+---
+
