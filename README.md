@@ -56,7 +56,7 @@ npm run dev
 ### 1. Todo App Dashboard
 *The main and only feature of the app :v*
 
-![Dashboard Screenshot](https://drive.google.com/file/d/1ZvIrYLtDvvgzJ38FyaKVKfN5AyZCNVBe/view?usp=sharing)
+![Dashboard Screenshot](./public/demo.png)
 
 
 ---
