@@ -21,7 +21,7 @@ Follow these steps to set up the project on your local machine.
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/react-redux-todoapp.git
+git clone https://github.com/vinhdoan-blueoctech/react-redux-todoapp.git
 
 # Navigate into the project directory
 cd react-redux-todoapp
@@ -37,7 +37,7 @@ yarn dev
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/react-redux-todoapp.git
+git clone https://github.com/vinhdoan-blueoctech/react-redux-todoapp.git
 
 # Navigate into the project directory
 cd react-redux-todoapp
@@ -60,4 +60,3 @@ npm run dev
 
 
 ---
-
