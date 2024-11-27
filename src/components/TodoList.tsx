@@ -1,25 +1,11 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
-import { Filter, Todo, TodoState } from "@/types";
+import { Todo } from "@/types";
 import { Card } from "./ui/card";
+import { selectFilteredBySearch } from "@/redux/selectors";
 
 const TodoList = () => {
-    const filteredTodos = useSelector((state: TodoState) => {
-        const todos = state.todos;
-        const filter = state.filter;
-        const searchTerm = state.searchTerm.toLowerCase();
-
-        return todos.filter((todo: Todo) => {
-            const matchesFilter =
-                (filter === Filter.Completed && todo.completed) ||
-                (filter === Filter.Incomplete && !todo.completed) ||
-                filter === Filter.All;
-
-            const matchesSearch = todo.text.toLowerCase().includes(searchTerm);
-
-            return matchesFilter && matchesSearch;
-        });
-    });
+    const filteredTodos = useSelector(selectFilteredBySearch);
 
     return (
         <div className="mt-4">
