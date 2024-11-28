@@ -1,8 +1,10 @@
 import { Filter } from "@/types";
+import { PageSizeIncrement } from "@/constants";
 import {
     ADD_TODO,
     EDIT_TODO,
     FILTER_TODOS,
+    INCREMENT_PAGE_SIZE,
     MARK_ALL_COMPLETED,
     MARK_COMPLETED,
     MARK_INCOMPLETE,
@@ -53,4 +55,9 @@ export const searchTodos = (searchTerm: string) => ({
 
 export const markAllCompleted = () => ({
     type: MARK_ALL_COMPLETED,
+});
+
+export const incrementPageSize = (pageSizeIncrement: number = PageSizeIncrement) => ({
+    type: INCREMENT_PAGE_SIZE,
+    payload: { pageSizeIncrement },
 });

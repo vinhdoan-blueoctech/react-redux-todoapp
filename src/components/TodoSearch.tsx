@@ -1,34 +1,29 @@
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
-import { Search } from "lucide-react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
 import { searchTodos } from "@/redux/actions";
+import { debounce } from "lodash";
+import { ChangeEvent } from "react";
+import { useDispatch } from "react-redux";
+import { Input } from "./ui/input";
 
 const TodoSearch = () => {
     const dispatch = useDispatch();
-    const [searchTerm, setSearchTerm] = useState<string>("");
 
-    const handleSearchClick = () => {
-        dispatch(searchTodos(searchTerm));
-    };
+    const debouncedSearch = debounce((value: string) => {
+        dispatch(searchTodos(value));
+    }, 300);
 
-    const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.target.value);
+    const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
+        const value = e.target.value;
+        debouncedSearch(value); 
     };
 
     return (
-        <div className="flex space-x-2">
+        <div>
             <Input
-                id="filterTodoInput"
-                placeholder="Filter your tasks"
-                className="min-w-[300px]"
-                value={searchTerm}
+                type="text"
+                placeholder="Search your todos..."
                 onChange={handleSearchChange}
+                className="border rounded p-2 w-full min-w-[360px]"
             />
-            <Button onClick={handleSearchClick}>
-                <Search />
-            </Button>
         </div>
     );
 };

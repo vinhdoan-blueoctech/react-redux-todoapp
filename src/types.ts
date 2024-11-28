@@ -14,4 +14,5 @@ export type TodoState = {
     todos: Todo[];
     filter: Filter;
     searchTerm: string;
+    pageSize: number;
 };
