@@ -2,10 +2,11 @@ import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import { Todo } from "@/types";
 import { Card } from "./ui/card";
-import { selectFilteredBySearch } from "@/redux/selectors";
+import { todosSelectors } from "@/redux/features/slice";
+
 
 const TodoList = () => {
-    const filteredTodos = useSelector(selectFilteredBySearch);
+    const filteredTodos = useSelector(todosSelectors.selectFilteredAndSearchedTodos);
 
     return (
         <div className="mt-4">

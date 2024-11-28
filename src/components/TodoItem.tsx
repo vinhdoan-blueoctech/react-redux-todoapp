@@ -4,10 +4,10 @@ import { Todo } from "@/types";
 import { PenTool, Trash } from "lucide-react";
 import { Badge } from "./ui/badge";
 import { useDispatch } from "react-redux";
-import { editTodo, removeTodo, toggleTodo } from "@/redux/actions";
 import { useState } from "react";
 import { Input } from "./ui/input";
 import { toast } from "sonner";
+import { editTodo, removeTodo, toggleTodo } from "@/redux/features/slice";
 
 const TodoItem = (todo: Todo) => {
   const dispatch = useDispatch();
@@ -24,7 +24,7 @@ const TodoItem = (todo: Todo) => {
   };
 
   const handleEditClick = () => {
-    dispatch(editTodo(todo.id, text));
+    dispatch(editTodo({ id: todo.id, text: text }));
     toast.success("Oh no! Task has been edited");
   };
 

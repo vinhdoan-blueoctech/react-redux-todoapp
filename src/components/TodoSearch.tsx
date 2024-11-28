@@ -1,14 +1,14 @@
-import { searchTodos } from "@/redux/actions";
 import { debounce } from "lodash";
 import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
 import { Input } from "./ui/input";
+import { setSearchTerm } from "@/redux/features/slice";
 
 const TodoSearch = () => {
     const dispatch = useDispatch();
 
     const debouncedSearch = debounce((value: string) => {
-        dispatch(searchTodos(value));
+        dispatch(setSearchTerm(value));
     }, 300);
 
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
