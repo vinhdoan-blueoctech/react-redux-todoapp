@@ -3,8 +3,8 @@ import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { PlusIcon } from "lucide-react";
 import { useDispatch } from "react-redux";
-import { addTodo } from "@/redux/actions";
 import { toast } from "sonner";
+import { addTodo } from "@/redux/features/slice";
 
 const TodoAddSection = () => {
   const dispatch = useDispatch();
