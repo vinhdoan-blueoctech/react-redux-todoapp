@@ -96,30 +96,4 @@ export const {
   markAllCompleted,
 } = todosSlice.actions;
 
-// Define selectors within the slice
-export const todosSelectors = {
-  selectTodos: (state: { todo: TodoState }) => state.todo.todos,
-  selectFilter: (state: { todo: TodoState }) => state.todo.filter,
-  selectSearchTerm: (state: { todo: TodoState }) => state.todo.searchTerm,
-  selectFilteredTodos: (state: { todo: TodoState }) => {
-    const todos = state.todo.todos;
-    const filter = state.todo.filter;
-
-    return todos.filter((todo: Todo) => {
-      if (filter === Filter.All) return true;
-      if (filter === Filter.Completed) return todo.completed;
-      if (filter === Filter.Incomplete) return !todo.completed;
-      return false;
-    });
-  },
-  selectFilteredAndSearchedTodos: (state: { todo: TodoState }) => {
-    const filteredTodos = todosSelectors.selectFilteredTodos(state);
-    const searchTerm = state.todo.searchTerm.toLowerCase();
-
-    return filteredTodos.filter((todo: Todo) =>
-      todo.text.toLowerCase().includes(searchTerm)
-    );
-  },
-};
-
 export default todosSlice.reducer;
