@@ -35,7 +35,14 @@ const Todo = () => {
                     <TodoFilterSearchBar />
                     <TodoList />
                 </CardContent>
-                <CardFooter></CardFooter>
+                <CardFooter>
+                    <div className="mx-auto w-full">
+                        <p className="text-sm text-muted-foreground">
+                            Created by #dnv
+
+                        </p>
+                    </div>
+                </CardFooter>
             </Card>
         </div>
     );

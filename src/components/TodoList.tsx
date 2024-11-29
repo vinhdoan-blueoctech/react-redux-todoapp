@@ -2,18 +2,17 @@ import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import { Todo } from "@/types";
 import { Card } from "./ui/card";
-import { selectFilteredBySearch } from "@/redux/selectors";
+import { selectFilteredAndSearchedTodos } from "@/redux/selectors";
 
 
 const TodoList = () => {
-    // const filteredTodos = useSelector(todosSelectors.selectFilteredAndSearchedTodos);
-    const filteredTodos = useSelector(selectFilteredBySearch);
+    const filteredTodos = useSelector(selectFilteredAndSearchedTodos);
 
 
     return (
         <div className="mt-4">
             <b>Tasks List</b>
-            <div className="mt-2">
+            <div className="mt-2 max-h-[40vh] overflow-y-auto">
                 {filteredTodos.length === 0 ? (
                     <p>No todos found.</p>
                 ) : (
