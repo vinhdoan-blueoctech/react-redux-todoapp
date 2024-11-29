@@ -4,6 +4,16 @@ import Todo from "./components/Todo";
 import { Toaster } from "./components/ui/sonner";
 
 function App() {
+  // const handleFetchTodo = async () => {
+  //   const response = await fetch("http://localhost:5173/todo.json").then(
+  //     (res) => res.json()
+  //   );
+
+  //   console.log("response", response);
+  // };
+  // useEffect(() => {
+  //   handleFetchTodo();
+  // }, []);
   return (
     <Provider store={store}>
       <Toaster />
