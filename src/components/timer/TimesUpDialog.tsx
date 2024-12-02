@@ -1,7 +1,7 @@
 import { AlertCircle } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "../ui/alert";
 
-const TimesUpDialog = ({ onClose }: {onClose: () => void}) => {
+const TimesUpDialog = ({ onClose }: { onClose: () => void }) => {
   return (
     <Alert
       variant="destructive"

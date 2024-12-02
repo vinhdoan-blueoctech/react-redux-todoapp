@@ -14,10 +14,12 @@ import {
   updateTodoStatus,
 } from "@/redux/features/todo/slice";
 import { selectTimerStatus } from "@/redux/features/timer/selectors";
+import { selectTodoStatus } from "@/redux/features/todo/selectors";
 
 const TodoItem = (todo: Todo) => {
   const dispatch = useDispatch();
   const timerCurrentStatus = useSelector(selectTimerStatus);
+  const todoCurrentStatus = useSelector(selectTodoStatus);
   const [text, setText] = useState<string>(todo.text);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -28,10 +30,10 @@ const TodoItem = (todo: Todo) => {
   }, [timerCurrentStatus]);
 
   useEffect(() => {
-    if (isEditing) {
-      dispatch(updateTodoStatus(todoStatus.Running));
-    } else {
-      dispatch(updateTodoStatus(todoStatus.Idle));
+    const status = isEditing ? todoStatus.Running : todoStatus.Idle;
+
+    if (todoCurrentStatus !== status) {
+      dispatch(updateTodoStatus(status));
     }
   }, [isEditing]);
 
@@ -99,21 +101,23 @@ const TodoItem = (todo: Todo) => {
             <PenTool />
           </Button>
         ) : (
-          <Button
-            variant="default"
-            onClick={() => setIsEditing(true)}
-            className="w-4 h-8"
-          >
-            <PenTool />
-          </Button>
+          <>
+            <Button
+              variant="default"
+              onClick={() => setIsEditing(true)}
+              className="w-4 h-8"
+            >
+              <PenTool />
+            </Button>
+            <Button
+              variant="destructive"
+              className="w-4 h-8"
+              onClick={handleRemove}
+            >
+              <Trash />
+            </Button>
+          </>
         )}
-        <Button
-          variant="destructive"
-          className="w-4 h-8"
-          onClick={handleRemove}
-        >
-          <Trash />
-        </Button>
       </div>
     </div>
   );

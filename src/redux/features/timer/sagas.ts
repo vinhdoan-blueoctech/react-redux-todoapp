@@ -23,7 +23,7 @@ function* tick() {
   }
 }
 
-function* timer(action: any){
+function* timer(action: any) {
   const isActive: boolean = yield select(selectTimerActiveState);
   if (!isActive) {
     return;

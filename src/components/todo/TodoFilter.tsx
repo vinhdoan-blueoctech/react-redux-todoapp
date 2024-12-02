@@ -9,12 +9,15 @@ import {
 } from "../ui/select";
 import { Filter } from "@/types";
 import { Button } from "../ui/button";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
 import { markAllCompleted, setFilter } from "@/redux/features/todo/slice";
+import { selectTodoStatus } from "@/redux/features/todo/selectors";
+import { selectIsDisabledComponents } from "@/redux/combinedSelectors";
 
 const TodoFilter = () => {
   const dispatch = useDispatch();
+  const isDisabledComponents = useSelector(selectIsDisabledComponents);
   const [selectedFilter, setSelectedFilter] = useState<Filter>(Filter.All);
 
   const handleFilterChange = (value: Filter) => {
@@ -32,6 +35,7 @@ const TodoFilter = () => {
       <Select
         value={selectedFilter}
         onValueChange={(value) => handleFilterChange(value as Filter)}
+        disabled={isDisabledComponents}
       >
         <SelectTrigger className="w-[132px]">
           <SelectValue placeholder="Select a filter" />
@@ -46,7 +50,9 @@ const TodoFilter = () => {
           </SelectGroup>
         </SelectContent>
       </Select>
-      <Button onClick={handleMarkAll}>Mark All as Completed</Button>
+      <Button disabled={isDisabledComponents} onClick={handleMarkAll}>
+        Mark All as Completed
+      </Button>
     </div>
   );
 };

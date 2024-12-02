@@ -1,6 +1,4 @@
-
-
-# Todo App 
+# Todo App
 
 This project is a React + TypeScript application powered by Vite, providing fast development with Hot Module Replacement (HMR) and a minimal setup. The app includes a sample todo application and integrates ESLint for consistent code quality.
 
@@ -54,9 +52,9 @@ npm run dev
 ## Demonstration
 
 ### 1. Todo App Dashboard
-*The main and only feature of the app :v*
+
+_The main and only feature of the app :v_
 
 ![Dashboard Screenshot](./public/demo.png)
-
 
 ---

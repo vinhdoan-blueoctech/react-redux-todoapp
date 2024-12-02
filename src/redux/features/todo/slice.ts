@@ -25,7 +25,7 @@ export const todosSlice = createSlice({
     },
     removeTodo: (state, action: PayloadAction<number>) => {
       state.todos = state.todos.filter(
-        (todo: Todo) => todo.id !== action.payload
+        (todo: Todo) => todo.id !== action.payload,
       );
     },
     toggleTodo: (state, action: PayloadAction<number>) => {
@@ -93,7 +93,7 @@ export const todosSlice = createSlice({
     },
     updateTodoStatus: (state, action: PayloadAction<todoStatus>) => {
       state.status = action.payload;
-    }
+    },
   },
 });
 

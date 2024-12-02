@@ -34,7 +34,12 @@ export const timerSlice = createSlice({
   },
 });
 
-export const { startTimer, decrementTimer, resetTimer, timerTimesup, toggleTimerActiveState } =
-  timerSlice.actions;
+export const {
+  startTimer,
+  decrementTimer,
+  resetTimer,
+  timerTimesup,
+  toggleTimerActiveState,
+} = timerSlice.actions;
 
 export default timerSlice.reducer;

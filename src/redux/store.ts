@@ -1,8 +1,8 @@
 import { configureStore, Tuple } from "@reduxjs/toolkit";
 import todosReducer from "./features/todo/slice";
-import  timerReducer  from "./features/timer/slice";
+import timerReducer from "./features/timer/slice";
 
-import createSagaMiddleware from 'redux-saga'
+import createSagaMiddleware from "redux-saga";
 import rootTodoSaga from "./features/todo/sagas";
 import rootTimerSaga from "./features/timer/sagas";
 

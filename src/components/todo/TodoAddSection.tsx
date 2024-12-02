@@ -22,14 +22,12 @@ const TodoAddSection = () => {
   }, [timerCurrentStatus]);
 
   useEffect(() => {
-    if (newTodoText.trim().length > 0) {
-      if (todoCurrentStatus !== todoStatus.Running) {
-        dispatch(updateTodoStatus(todoStatus.Running));
-      }
-    } else {
-      if (todoCurrentStatus !== todoStatus.Idle) {
-        dispatch(updateTodoStatus(todoStatus.Idle));
-      }
+    const isTyping = newTodoText.trim().length > 0;
+
+    const status = isTyping ? todoStatus.Running : todoStatus.Idle;
+
+    if (todoCurrentStatus !== status) {
+      dispatch(updateTodoStatus(status));
     }
   }, [newTodoText]);
 
