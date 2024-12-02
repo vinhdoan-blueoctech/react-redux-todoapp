@@ -12,7 +12,7 @@ const TimesUpDialog = ({ onClose }: {onClose: () => void}) => {
         <AlertCircle className="h-4 w-4 text-red-500" />
         <div>
           <AlertTitle>Heads up!</AlertTitle>
-          <AlertDescription>The time's up!</AlertDescription>
+          <AlertDescription>You’re running out of time.</AlertDescription>
         </div>
       </div>
     </Alert>

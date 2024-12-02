@@ -1,8 +1,10 @@
 import { TimerState, timerStatus } from "@/types";
 import { createSlice } from "@reduxjs/toolkit";
 
+const timeThreshold = 60;
+
 const initialState = {
-  time: 10,
+  time: timeThreshold,
   status: timerStatus.Idle,
   isActive: false,
 } as TimerState;
@@ -12,11 +14,11 @@ export const timerSlice = createSlice({
   initialState,
   reducers: {
     startTimer: (state) => {
-      state.time = 10;
+      state.time = timeThreshold;
       state.status = timerStatus.Running;
     },
     resetTimer: (state) => {
-      state.time = 10;
+      state.time = timeThreshold;
       state.status = timerStatus.Idle;
     },
     decrementTimer: (state) => {
