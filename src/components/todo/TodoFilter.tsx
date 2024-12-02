@@ -6,12 +6,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "./ui/select";
+} from "../ui/select";
 import { Filter } from "@/types";
-import { Button } from "./ui/button";
+import { Button } from "../ui/button";
 import { useDispatch } from "react-redux";
 import { toast } from "sonner";
-import { markAllCompleted, setFilter } from "@/redux/features/slice";
+import { markAllCompleted, setFilter } from "@/redux/features/todo/slice";
 
 const TodoFilter = () => {
   const dispatch = useDispatch();

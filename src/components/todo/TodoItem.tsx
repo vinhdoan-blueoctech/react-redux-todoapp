@@ -1,18 +1,39 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { Todo } from "@/types";
+import { timerStatus, Todo, todoStatus } from "@/types";
 import { PenTool, Trash } from "lucide-react";
-import { Badge } from "./ui/badge";
-import { useDispatch } from "react-redux";
-import { useState } from "react";
-import { Input } from "./ui/input";
+import { Badge } from "../ui/badge";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { Input } from "../ui/input";
 import { toast } from "sonner";
-import { editTodo, removeTodo, toggleTodo } from "@/redux/features/slice";
+import {
+  editTodo,
+  removeTodo,
+  toggleTodo,
+  updateTodoStatus,
+} from "@/redux/features/todo/slice";
+import { selectTimerStatus } from "@/redux/features/timer/selectors";
 
 const TodoItem = (todo: Todo) => {
   const dispatch = useDispatch();
+  const timerCurrentStatus = useSelector(selectTimerStatus);
   const [text, setText] = useState<string>(todo.text);
   const [isEditing, setIsEditing] = useState(false);
+
+  useEffect(() => {
+    if (timerCurrentStatus === timerStatus.TimesUp) {
+      setIsEditing(false);
+    }
+  }, [timerCurrentStatus]);
+
+  useEffect(() => {
+    if (isEditing) {
+      dispatch(updateTodoStatus(todoStatus.Running));
+    } else {
+      dispatch(updateTodoStatus(todoStatus.Idle));
+    }
+  }, [isEditing]);
 
   const handleRemove = () => {
     dispatch(removeTodo(todo.id));

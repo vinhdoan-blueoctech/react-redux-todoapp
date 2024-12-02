@@ -1,14 +1,37 @@
-import { useState } from "react";
-import { Input } from "./ui/input";
-import { Button } from "./ui/button";
+import { useEffect, useState } from "react";
+import { Input } from "../ui/input";
+import { Button } from "../ui/button";
 import { PlusIcon } from "lucide-react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toast } from "sonner";
-import { addTodo } from "@/redux/features/slice";
+import { addTodo, updateTodoStatus } from "@/redux/features/todo/slice";
+import { timerStatus, todoStatus } from "@/types";
+import { selectTodoStatus } from "@/redux/features/todo/selectors";
+import { selectTimerStatus } from "@/redux/features/timer/selectors";
 
 const TodoAddSection = () => {
   const dispatch = useDispatch();
+  const todoCurrentStatus = useSelector(selectTodoStatus);
+  const timerCurrentStatus = useSelector(selectTimerStatus);
   const [newTodoText, setNewTodoText] = useState<string>("");
+
+  useEffect(() => {
+    if (timerCurrentStatus === timerStatus.TimesUp) {
+      setNewTodoText("");
+    }
+  }, [timerCurrentStatus]);
+
+  useEffect(() => {
+    if (newTodoText.trim().length > 0) {
+      if (todoCurrentStatus !== todoStatus.Running) {
+        dispatch(updateTodoStatus(todoStatus.Running));
+      }
+    } else {
+      if (todoCurrentStatus !== todoStatus.Idle) {
+        dispatch(updateTodoStatus(todoStatus.Idle));
+      }
+    }
+  }, [newTodoText]);
 
   const handleAddTodo = (text: string) => {
     dispatch(addTodo(text));
@@ -26,7 +49,7 @@ const TodoAddSection = () => {
   };
 
   return (
-    <div>
+    <div className="mt-4">
       <b>Add Task</b>
       <div className="flex w-full justify-self-center items-center space-x-2 h-12 mt-2">
         <Input

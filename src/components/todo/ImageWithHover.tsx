@@ -4,7 +4,7 @@ import {
     DialogDescription,
     DialogHeader,
     DialogTrigger,
-} from "./ui/dialog";
+} from "../ui/dialog";
 
 const ImageWithHover = ({ src }: { src: string }) => {
     return (

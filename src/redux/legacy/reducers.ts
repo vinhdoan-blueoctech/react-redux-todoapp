@@ -9,15 +9,15 @@ import {
     SEARCH_TODOS,
     TOGGLE_TODO,
 } from "./actionTypes";
-import { Filter, Todo, TodoState } from "@/types";
+import { Filter, Todo, todoState } from "@/types";
 
 const initialState = {
     todos: [] as Todo[],
     filter: Filter.All,
     searchTerm: "",
-} as TodoState;
+} as todoState;
 
-const todoReducer = (state: TodoState = initialState, action: any) => {
+const todoReducer = (state: todoState = initialState, action: any) => {
     switch (action.type) {
         case ADD_TODO:
             return {
