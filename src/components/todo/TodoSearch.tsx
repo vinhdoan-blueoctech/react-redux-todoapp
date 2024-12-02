@@ -1,8 +1,8 @@
 import { debounce } from "lodash";
 import { ChangeEvent } from "react";
 import { useDispatch } from "react-redux";
-import { Input } from "./ui/input";
-import { setSearchTerm } from "@/redux/features/slice";
+import { Input } from "../ui/input";
+import { setSearchTerm } from "@/redux/features/todo/slice";
 
 const TodoSearch = () => {
     const dispatch = useDispatch();

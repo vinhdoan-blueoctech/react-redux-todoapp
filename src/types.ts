@@ -10,8 +10,26 @@ export enum Filter {
     Completed = "Completed",
 }
 
-export type TodoState = {
+export enum todoStatus {
+    Idle = "idle",
+    Running = "running",
+}
+
+export enum timerStatus {
+    Idle = "idle",
+    Running = "running",
+    TimesUp = "timesup",
+}
+
+export type todoState = {
     todos: Todo[];
     filter: Filter;
     searchTerm: string;
+    status: todoStatus;
 };
+
+export type TimerState = {
+    time: number;
+    status: timerStatus;
+    isActive: boolean;
+}

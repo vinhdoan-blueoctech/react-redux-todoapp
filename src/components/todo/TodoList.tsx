@@ -1,8 +1,8 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./TodoItem";
 import { Todo } from "@/types";
-import { Card } from "./ui/card";
-import { selectFilteredAndSearchedTodos } from "@/redux/selectors";
+import { Card } from "../ui/card";
+import { selectFilteredAndSearchedTodos } from "@/redux/features/todo/selectors";
 
 
 const TodoList = () => {
